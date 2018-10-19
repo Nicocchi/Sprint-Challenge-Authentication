@@ -14,6 +14,14 @@ class App extends Component {
         loggedIn: false,
     };
 
+    componentDidMount() {
+        if(localStorage.getItem('jwt')) {
+            this.setLogin();
+        } else {
+            this.setState({ loggedIn: false});
+        }
+    };
+
     setLogin = () => {
         this.setState({ loggedIn: !this.state.loggedIn });
         this.forceUpdate();

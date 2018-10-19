@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import Styled from 'styled-components';
 import axios from 'axios';
 
 import Jokes from './Jokes';
+
+const Wrapper = Styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`;
 
 class JokesList extends Component {
     state = {
@@ -13,7 +20,7 @@ class JokesList extends Component {
 
     render() {
         return (
-            <div>
+            <Wrapper>
                 <h1>Dad Jokes</h1>
                 <h2>{this.state.isError ? `You are not authorized to view this page.` : ''}</h2>
                 <span>{this.state.isError ? <NavLink to="/register">Register</NavLink> : ''}
@@ -22,7 +29,7 @@ class JokesList extends Component {
                 <ul>
                     {this.state.jokes.map(joke => (<Jokes key={joke.id} {...this.props} joke={joke} />))}
                 </ul>
-            </div>
+            </Wrapper>
         )
     };
 
