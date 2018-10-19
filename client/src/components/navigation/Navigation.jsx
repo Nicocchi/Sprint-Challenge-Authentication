@@ -16,7 +16,7 @@ class Navigation extends Component {
                 <div>
                     <NavLink to="/" >Home</NavLink>
                     &nbsp;&nbsp;
-                    <NavLink to="/users" >Users</NavLink>
+                    <NavLink to="/jokes" >Jokes</NavLink>
                     &nbsp;&nbsp;
                     <NavLink to="/login" >Login</NavLink>
                     &nbsp;&nbsp;
