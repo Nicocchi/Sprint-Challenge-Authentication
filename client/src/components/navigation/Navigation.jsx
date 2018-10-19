@@ -16,7 +16,7 @@ const Wrapper = Styled.div`
     }
     
     a:hover {
-        color: #69646;
+        color: #696466;
         transition: 0.7s;
     }
 `;
