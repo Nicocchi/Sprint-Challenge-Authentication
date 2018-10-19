@@ -64,9 +64,9 @@ class Navigation extends Component {
                     &nbsp;&nbsp;
                     <NavLink to="/jokes" >Jokes</NavLink>
                     &nbsp;&nbsp;
-                    <NavLink to="/login" >Login</NavLink>
+                    {this.props.loggedIn ? '' : <NavLink to="/login" >Login</NavLink>}
                     &nbsp;&nbsp;
-                    <NavLink to="/register" >Register</NavLink>
+                    {this.props.loggedIn ? '' : <NavLink to="/register" >Register</NavLink>}
                 </NavLeft>
 
                 <NavRight>
