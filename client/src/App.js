@@ -4,7 +4,7 @@ import { Route, withRouter } from 'react-router-dom';
 import Navigation from './components/navigation/Navigation';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
-import Jokes from './components/jokes/Jokes';
+import JokesList from './components/jokes/JokesList';
 
 import './App.css';
 
@@ -25,7 +25,7 @@ class App extends Component {
           </header>
         <main>
             <Route exact path="/" component={Home} />
-            <Route path="/jokes" render={props => <Jokes {...props} />} />
+            <Route path="/jokes" render={props => <JokesList {...props} />} />
             <Route path="/login" render={props => <Login {...props} />} />
             <Route path="/register" render={props => <Register {...props} />} />
         </main>

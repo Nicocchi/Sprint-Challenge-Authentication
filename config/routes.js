@@ -16,7 +16,6 @@ function register(req, res) {
 
     const hash = bcrypt.hashSync(creds.password, 10);
     creds.password = hash;
-    console.log(creds);
 
     db('users').insert(creds).then(ids => {
       const id = ids[0];
@@ -51,6 +50,6 @@ function getJokes(req, res) {
       res.status(200).json(response.data);
     })
     .catch(err => {
-      res.status(500).json({ message: 'Error Fetching Jokes', error: err });
+      res.status(500).json({ message: 'Error Fetching JokesList', error: err });
     });
 }
