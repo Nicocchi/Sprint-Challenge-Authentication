@@ -1,5 +1,39 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import Styled from 'styled-components';
+
+const Wrapper = Styled.div`
+    width: 100%;
+    height: 100px;
+    color: #ffffff;
+    background-color: #313131;
+    display: flex;
+    align-items: center;
+    
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+`;
+
+const NavLeft = Styled.div`
+    width: 100%;
+    margin-left: 13.5%;
+`;
+
+const NavRight = Styled.div`
+    position: relative;
+    width: 15%;
+    right: 0;
+`;
+
+const Button = Styled.button`
+    position: relative;
+    width: 100%;
+    margin-top: 0;
+    right: 10px;
+    cursor: pointer;
+`;
 
 class Navigation extends Component {
 
@@ -12,8 +46,8 @@ class Navigation extends Component {
 
     render() {
         return (
-            <nav>
-                <div>
+            <Wrapper>
+                <NavLeft>
                     <NavLink to="/" >Home</NavLink>
                     &nbsp;&nbsp;
                     <NavLink to="/jokes" >Jokes</NavLink>
@@ -21,13 +55,13 @@ class Navigation extends Component {
                     <NavLink to="/login" >Login</NavLink>
                     &nbsp;&nbsp;
                     <NavLink to="/register" >Register</NavLink>
-                </div>
+                </NavLeft>
 
-                <div>
-                    <button onClick={this.userLogout}>Logout</button>
-                </div>
+                <NavRight>
+                    <Button onClick={this.userLogout}>Logout</Button>
+                </NavRight>
 
-            </nav>
+            </Wrapper>
         );
     }
 
