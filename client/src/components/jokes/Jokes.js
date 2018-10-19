@@ -18,7 +18,7 @@ class Jokes extends Component {
                     {this.state.isError ? 'Or' : ''} {this.state.isError ? <NavLink to="/login">Login</NavLink> : ''}
                 </span>
                 <ul>
-                    {this.state.jokes.map(joke => (<li key={joke.id}>{joke}</li>))}
+                    {this.state.jokes.map(joke => (<li key={joke.id}>{joke.setup}</li>))}
                 </ul>
             </div>
         )
@@ -39,6 +39,7 @@ class Jokes extends Component {
 
         axios.get(endpoint, options).then(res => {
             console.log(res);
+            this.setState({ jokes: res.data });
         }).catch(err => {
             this.setState({ isError: true });
         })
