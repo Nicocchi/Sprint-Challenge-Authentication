@@ -16,6 +16,7 @@ function register(req, res) {
 
     const hash = bcrypt.hashSync(creds.password, 10);
     creds.password = hash;
+    console.log(creds);
 
     db('users').insert(creds).then(ids => {
       const id = ids[0];

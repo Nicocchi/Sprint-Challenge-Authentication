@@ -38,7 +38,6 @@ class Jokes extends Component {
         };
 
         axios.get(endpoint, options).then(res => {
-            console.log(res);
             this.setState({ jokes: res.data });
         }).catch(err => {
             this.setState({ isError: true });
