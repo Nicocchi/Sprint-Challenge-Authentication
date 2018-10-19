@@ -2,19 +2,12 @@ import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 
 import Navigation from './components/navigation/Navigation';
+import Home from './components/home/Home';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import JokesList from './components/jokes/JokesList';
 
 import './App.css';
-
-const Home = props => {
-  return (
-      <div>
-        <h1>Home Component</h1>
-      </div>
-  )
-}
 
 class App extends Component {
     state = {
