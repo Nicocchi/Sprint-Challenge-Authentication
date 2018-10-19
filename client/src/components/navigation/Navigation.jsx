@@ -14,6 +14,11 @@ const Wrapper = Styled.div`
       color: #ffffff;
       text-decoration: none;
     }
+    
+    a:hover {
+        color: #69646;
+        transition: 0.7s;
+    }
 `;
 
 const NavLeft = Styled.div`
@@ -37,9 +42,16 @@ const Button = Styled.button`
 
 class Navigation extends Component {
 
+    componentDidMount() {
+        if(localStorage.getItem('jwt')) {
+            this.props.setLogin();
+        };
+    };
+
     userLogout = () => {
         if(localStorage.getItem('jwt')) {
             localStorage.removeItem('jwt');
+            this.props.setLogin();
             this.props.history.push('/');
         };
     };
@@ -58,7 +70,7 @@ class Navigation extends Component {
                 </NavLeft>
 
                 <NavRight>
-                    <Button onClick={this.userLogout}>Logout</Button>
+                    {this.props.loggedIn ? <Button onClick={this.userLogout}>Logout</Button> : ''}
                 </NavRight>
 
             </Wrapper>

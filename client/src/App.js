@@ -17,17 +17,26 @@ const Home = props => {
 }
 
 class App extends Component {
+    state = {
+        loggedIn: false,
+    };
+
+    setLogin = () => {
+        this.setState({ loggedIn: !this.state.loggedIn });
+        this.forceUpdate();
+    }
+
   render() {
     return (
       <div className="App">
           <header>
-              <Navigation {...this.props} />
+              <Navigation {...this.props} loggedIn={this.state.loggedIn} setLogin={this.setLogin} />
           </header>
         <main>
             <Route exact path="/" component={Home} />
             <Route path="/jokes" render={props => <JokesList {...props} />} />
-            <Route path="/login" render={props => <Login {...props} />} />
-            <Route path="/register" render={props => <Register {...props} />} />
+            <Route path="/login" render={props => <Login {...props} setLogin={this.setLogin} />} />
+            <Route path="/register" render={props => <Register {...props} setLogin={this.setLogin}  />} />
         </main>
       </div>
     );
