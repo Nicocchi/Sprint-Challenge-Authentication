@@ -1,5 +1,27 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Styled from 'styled-components';
+
+const Wrapper = Styled.form`
+    width: 70%;
+    margin: 0 auto;
+    position: relative;
+`;
+
+const Input = Styled.input`
+    width: 20%;
+    height: 30px;
+    border: 0;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+`;
+
+const Label = Styled.label`
+    position: relative;
+    top: -20px;
+    left: 10%;
+`;
 
 class Register extends Component {
     state = {
@@ -28,20 +50,20 @@ class Register extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit} >
+            <Wrapper onSubmit={this.handleSubmit} >
                 <h1>Register</h1>
                 <div >
-                    <input type="text" id="username" name="username" placeholder="Username" value={this.state.username} onChange={this.handleInput} />
-                    <label htmlFor="username">Username</label>
+                    <Label htmlFor="username">Username</Label>
+                    <Input type="text" id="username" name="username" placeholder="Username" value={this.state.username} onChange={this.handleInput} />
                 </div>
                 <div >
-                    <input type="password" id="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleInput} />
-                    <label htmlFor="password">Password</label>
+                    <Label htmlFor="password">Password</Label>
+                    <Input type="password" id="password" placeholder="password" name="password" value={this.state.password} onChange={this.handleInput} />
                 </div>
                 <div>
                     <button type="submit">Register</button>
                 </div>
-            </form>
+            </Wrapper>
         );
     };
 }
